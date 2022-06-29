@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Demo</title>
+    <link href="{{ url_for('static', path='/bootstrap-5.0.2/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', path='/htmx.min.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 py-5">
+                <h1 class="mb-5 text-center">
+                    Tables of films({{ num_films }})
+                </h1>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Film name</th>
+                        <th scope="col">Director</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        {% include 'partials/table.html' %}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/bootstrap-5.0.2/js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+                        {% for film in films %}
+                        <tr>
+                            <th scope="row">{{ film.id }}</th>
+                            <td>{{ film.name }}</td>
+                            <td>{{ film.director }}</td>
+                        </tr>
+                        {% endfor %}
+
+                        {% if films %}
+                        <tr>
+                            <td colspan="3">
+                                <div class="text-center pt-3">
+                                    <button class="btn btn-outline-success"
+                                        hx-get="/?page={{ page + 1 }}"
+                                        hx-target="closest tr"
+                                        hx-swap="outerHTML">
+                                        Load more data
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3">
+                                <div class="text-center pt-3">
+                                    <em>There are no films yet !</em>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
